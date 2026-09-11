@@ -25,12 +25,13 @@ RAW MASTER -> BACKUP -> CLEAN -> SEGMENTED -> TRAIN / VALIDATION / TEST
 
 ## Start here
 
-1. Read [`docs/RECORDING_SESSION_V1.md`](docs/RECORDING_SESSION_V1.md).
-2. Copy `templates/RECORDING_LOG.csv` to your working audio drive.
-3. Record a 15–20 minute pilot before attempting the full session.
-4. Run `python scripts/validate_dataset.py /path/to/01_RAW_MASTER`.
-5. Run `python scripts/build_manifest.py /path/to/01_RAW_MASTER --output manifests/raw_master_v1.json`.
-6. Review failures and listening notes before recording the remaining material.
+1. Complete the two-microphone comparison in [`docs/PILOT_SESSION_V1.md`](docs/PILOT_SESSION_V1.md).
+2. Choose the canonical microphone only after reviewing both unprocessed tests.
+3. Record the 15–20 minute pilot on the chosen microphone.
+4. Copy `templates/RECORDING_LOG.csv` to your working audio drive.
+5. Run `python scripts/validate_dataset.py /path/to/01_RAW_MASTER`.
+6. Run `python scripts/build_manifest.py /path/to/01_RAW_MASTER --output manifests/raw_master_v1.json`.
+7. Review failures and listening notes before recording the full session in [`docs/RECORDING_SESSION_V1.md`](docs/RECORDING_SESSION_V1.md).
 
 ## Repository boundaries
 
@@ -54,6 +55,10 @@ See [`docs/AUDIO_STORAGE.md`](docs/AUDIO_STORAGE.md).
 - [x] Recording protocol v1
 - [x] Dataset validator and manifest builder
 - [x] Benchmark and recording templates
+- [x] Pilot and microphone A/B protocol
+- [x] BandLab intake/export protocol
+- [x] Automated repository tests
+- [ ] Scarlett Studio vs. older condenser A/B test
 - [ ] 15–20 minute pilot recording
 - [ ] Pilot QA and mic selection
 - [ ] Full master dataset
