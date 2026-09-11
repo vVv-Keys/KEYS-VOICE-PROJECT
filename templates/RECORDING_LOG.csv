@@ -1,0 +1,2 @@
+file_name,category,take,date,microphone,interface,environment,sample_rate,bit_depth,peak_dbfs,status,notes
+KVM1_SPK_001_Neutral.wav,SPEECH,A,,,,,48000,24,,pending,
