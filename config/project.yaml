@@ -1,0 +1,22 @@
+project: KEYS_VOICE_PROJECT
+artist: Sky Desperado
+identity: Keys
+dataset_version: KEYS_VOICE_MASTER_v1
+capture:
+  sample_rate_hz: 48000
+  bit_depth: 24
+  channels: 1
+  format: WAV
+  normalized: false
+  processed: false
+splits:
+  train: 0.85
+  validation: 0.10
+  test: 0.05
+privacy:
+  repository_visibility: private
+  raw_audio_in_git: false
+  model_checkpoints_in_git: false
+integration:
+  taperoom_mode_first: offline_hq
+  preserve_existing_realtime_tuner: true
