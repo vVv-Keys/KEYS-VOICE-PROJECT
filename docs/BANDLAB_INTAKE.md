@@ -12,6 +12,11 @@ original performances while making every export understandable outside BandLab.
 5. Never combine an instrumental, double, harmony, or Suno vocal with a dataset file.
 6. Record the BandLab project name and revision in `templates/RECORDING_LOG.csv`.
 
+If BandLab provides only a 44.1 kHz / 16-bit stereo WAV, keep it unchanged as
+`SOURCE_RAW`. If the two channels are identical, record that fact in the manifest
+but do not create another persistent mono copy yet. Downmix/resample exactly once
+when model-ready derivatives are built. Upload each raw batch only once.
+
 ## Existing songs and stems
 
 Export every stem from the same timeline start and with the same total duration.
