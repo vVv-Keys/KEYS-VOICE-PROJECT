@@ -1,0 +1,66 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Canonical and working audio: private, large, and never committed by accident
+01_RAW_MASTER/**/*
+02_BACKUP/**/*
+03_CLEAN/**/*
+04_SEGMENTED/**/*
+05_TRAIN/**/*
+06_VALIDATION/**/*
+07_TEST/**/*
+08_SUNO/**/GENERATIONS/**/*
+09_LOCAL_MODELS/**/*
+10_BENCHMARKS/**/*
+11_PRODUCTION_TESTS/**/*
+12_TAPEROOM/OFFLINE_HQ/**/*
+12_TAPEROOM/REALTIME/**/*
+
+# Preserve the documented directory skeleton
+!**/.gitkeep
+
+# Audio/model formats anywhere else must be explicitly force-added after review
+*.wav
+*.wave
+*.aif
+*.aiff
+*.flac
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.mp4
+*.mov
+*.mkv
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.zip
+*.7z
+*.rar
+
+# Generated local reports
+reports/
+*.tmp
