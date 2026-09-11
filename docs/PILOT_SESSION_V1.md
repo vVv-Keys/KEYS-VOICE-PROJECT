@@ -1,16 +1,12 @@
 # KEYS Voice Pilot Session v1
 
-Do this before recording the full 40–60 minute master dataset. The immediate
-goal is to select one canonical microphone and catch gain, noise, room, diction,
-and file-format problems while they are still cheap to fix.
+The **Focusrite Scarlett Studio condenser microphone is the only canonical
+microphone** for `KEYS_VOICE_MASTER_v1`. There is no microphone A/B step.
 
-## Equipment under test
-
-- **MIC A:** Focusrite Scarlett Studio condenser microphone.
-- **MIC B:** older warm condenser microphone.
-- Use the same interface, cable, pop filter, location, posture, and mic distance.
-- Each microphone may need its own gain setting. Log both settings; do not force
-  identical gain-knob positions.
+The first pilot contains four approximately four-minute Scarlett takes. Do not
+record the same instructions again. The next capture should add missing vocal
+variety while correcting the level problems documented in
+`docs/PILOT_QA_REPORT.md`.
 
 ## Environment
 
@@ -36,94 +32,33 @@ Pitch tools:   off
 ```
 
 Position the microphone 6–8 inches away. Aim normal peaks around -18 to -10 dBFS
-and the strongest peak between -10 and -6 dBFS. Never clip.
+and the strongest peak between -10 and -6 dBFS. The first pilot reached 0 dBFS,
+so reduce input gain by at least 6 dB and confirm the meter before the next take.
 
-## Part 1 — microphone A/B test
+BandLab may export a 44.1 kHz, 16-bit, dual-mono stereo source. Preserve that
+original exactly as `SOURCE_RAW`; do not manually upsample it. Canonical mono
+48 kHz / 24-bit working files are produced once during later preprocessing.
 
-Record the exact same material once through each microphone. Do not try to make
-the second performance prettier than the first.
+## Next capture — four different takes
 
-### Section 1: natural speech
+Each take should be about four minutes. Keep the Scarlett position, room, gain,
+and posture fixed. Stop immediately if the meter reaches 0 dBFS.
 
-> Alright, this is my normal voice at a comfortable distance from the microphone.
-> I am not trying to make it darker, brighter, deeper, or cleaner. Some words are
-> short, some words drag, and the ends of my sentences naturally get quieter.
-> This recording should preserve the voice I actually use.
+| Take | Content | Direction |
+| --- | --- | --- |
+| `TAKE_05_SPEECH_ARTICULATION_RAW` | speech, consonants, two emotion lines | normal voice; neutral, hurt, hopeful, confident |
+| `TAKE_06_MELODIC_RANGE_RAW` | natural melody, low/mid/high register, sustains, slides | straight tone and natural vibrato; no forced top notes |
+| `TAKE_07_RAP_PHRASING_RAW` | melodic rap, straight rap, one line in many cadences | conversational, laid back, harder, ahead/behind beat |
+| `TAKE_08_EXPRESSION_FREE_RAW` | intimate, strong, ad-libs, free original performance | engaged quiet voice, full voice, then stop following the script |
 
-### Section 2: natural melodic voice
-
-Choose one comfortable melody and sing:
-
-> Late light moving through the glass  
-> I let another long night pass  
-> I do not need to force the sound  
-> I only need to stay around
-
-Sing it twice: one normal take and one intimate/quiet take. Do not fully whisper.
-
-### Section 3: melodic rap
-
-Use a silent metronome in headphones around 90 BPM if useful:
-
-> Dashboard glow and the road stay dark  
-> Still got miles but I know my mark  
-> Built this slow, every piece got proof  
-> If it sounds like Keys then it tells the truth
-
-### Section 4: vowels and transitions
-
-- Hold `AH`, `EE`, `OH`, and `OO` for three seconds each.
-- Perform one comfortable low-to-middle-to-low siren on `OO`.
-- Say `baby`, `pressure`, `different`, `tonight`, `summer`, `crazy`, and `forever`.
-
-### A/B filenames
-
-```text
-KVM1_MIC_A_SCARLETT_TEST_RAW.wav
-KVM1_MIC_B_WARM_CONDENSER_TEST_RAW.wav
-```
-
-Keep the entire test in one file per microphone. Also export a clearly labeled
-processed listening copy only if desired; the processed copy is never used to
-judge dataset suitability.
-
-## Microphone selection
-
-Score each recording with `templates/MIC_AB_EVALUATION.csv`. Listen for:
-
-- recognizable Keys identity;
-- natural low/mid tone without false boom;
-- intimate delivery without excessive hiss or air;
-- clean consonants without harsh `S`, `T`, or plosives;
-- low background noise and electrical hum;
-- manageable room/car reflections;
-- no crackles, pops, clipping, or unstable cable noise.
-
-Identity and repeatable cleanliness matter more than expensive branding. Do not
-select a microphone merely because it sounds louder or brighter.
-
-## Part 2 — 15–20 minute pilot
-
-After choosing one microphone, record these files on that microphone only:
-
-| File | Target | Content |
-| --- | ---: | --- |
-| `KVM1_SPK_001_Neutral.wav` | 2 min | neutral and conversational speech |
-| `KVM1_VOW_001_Pilot.wav` | 2 min | vowels, consonants, attacks, releases |
-| `KVM1_PIT_001_Pilot.wav` | 2 min | five-note scales, sustains, slides |
-| `KVM1_MEL_001A_Natural.wav` | 3 min | natural mid-register melodic singing |
-| `KVM1_BRT_001_Intimate.wav` | 2 min | engaged quiet/intimate delivery |
-| `KVM1_MRP_001A_Natural.wav` | 2 min | melodic rap around 80–100 BPM |
-| `KVM1_RAP_001A_Conversational.wav` | 2 min | straight conversational rap |
-| `KVM1_FREE_001_Performance.wav` | 3 min | original free performance and ad-libs |
-
-Use the matching material in `docs/RECORDING_SESSION_V1.md`. Keep every file raw.
+Use unused material from `docs/RECORDING_SESSION_V1.md`. One clean take of each
+category is more valuable now than another copy of the same pilot script.
 
 ## Stop point
 
-Do not continue into the complete dataset until the pilot has been checked for:
+Do not continue into the complete dataset until the follow-up has been checked for:
 
-- correct 48 kHz / 24-bit / mono format;
+- source format documented and model-ready derivatives planned as 48 kHz / 24-bit / mono;
 - safe peak level and no clipping;
 - consistent mic distance and tone;
 - room, traffic, fan, or electrical noise;
@@ -131,6 +66,6 @@ Do not continue into the complete dataset until the pilot has been checked for:
 - sufficient variety without forced high notes;
 - filenames and recording log entries.
 
-The pilot is successful when the files are technically clean, recognizably Keys,
-comfortable to reproduce, and diverse enough to test a voice model without
+The capture is successful when the files are technically clean, recognizably
+Keys, comfortable to reproduce, and diverse enough to test a voice model without
 contaminating the permanent dataset.
