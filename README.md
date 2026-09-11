@@ -25,11 +25,11 @@ RAW MASTER -> BACKUP -> CLEAN -> SEGMENTED -> TRAIN / VALIDATION / TEST
 
 ## Start here
 
-1. Complete the two-microphone comparison in [`docs/PILOT_SESSION_V1.md`](docs/PILOT_SESSION_V1.md).
-2. Choose the canonical microphone only after reviewing both unprocessed tests.
-3. Record the 15–20 minute pilot on the chosen microphone.
+1. Read the current pilot result in [`docs/PILOT_QA_REPORT.md`](docs/PILOT_QA_REPORT.md).
+2. Keep the Scarlett Studio condenser as the one canonical microphone.
+3. Use the four-part varied recording plan in [`docs/PILOT_SESSION_V1.md`](docs/PILOT_SESSION_V1.md); do not repeat the same four-minute script again.
 4. Copy `templates/RECORDING_LOG.csv` to your working audio drive.
-5. Run `python scripts/validate_dataset.py /path/to/01_RAW_MASTER`.
+5. Run `python scripts/validate_dataset.py /path/to/01_RAW_MASTER` on canonical model-ready files.
 6. Run `python scripts/build_manifest.py /path/to/01_RAW_MASTER --output manifests/raw_master_v1.json`.
 7. Review failures and listening notes before recording the full session in [`docs/RECORDING_SESSION_V1.md`](docs/RECORDING_SESSION_V1.md).
 
@@ -55,12 +55,14 @@ See [`docs/AUDIO_STORAGE.md`](docs/AUDIO_STORAGE.md).
 - [x] Recording protocol v1
 - [x] Dataset validator and manifest builder
 - [x] Benchmark and recording templates
-- [x] Pilot and microphone A/B protocol
+- [x] Scarlett-only pilot protocol
 - [x] BandLab intake/export protocol
 - [x] Automated repository tests
-- [ ] Scarlett Studio vs. older condenser A/B test
-- [ ] 15–20 minute pilot recording
-- [ ] Pilot QA and mic selection
+- [x] Scarlett Studio selected as the only canonical microphone
+- [x] 16:42 Scarlett pilot recording
+- [x] Automated pilot format, level, channel, and checksum QA
+- [ ] Listening/content QA of the pilot
+- [ ] Varied follow-up capture at a safer gain level
 - [ ] Full master dataset
 - [ ] Suno reference montage
 - [ ] Zero-shot local VC benchmark
