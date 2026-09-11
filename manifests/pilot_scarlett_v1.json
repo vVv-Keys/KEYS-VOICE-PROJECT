@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "pilot_id": "KVM1_PILOT_SCARLETT_v1",
+  "canonical_microphone": "Focusrite Scarlett Studio condenser",
+  "file_count": 4,
+  "approximate_total_duration_minutes": 17,
+  "raw_audio_in_git": false,
+  "per_file_metadata_in_git": false,
+  "status": "technical pilot reviewed; listening review pending",
+  "privacy_note": "Source names, checksums, exact levels, and event timestamps are omitted from GitHub."
+}
